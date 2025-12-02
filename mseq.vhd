@@ -22,7 +22,7 @@ architecture arc of mseq is
     signal ADDR_field : std_logic_vector(5 downto 0);
 begin
 
-    -- ROM instance
+
     rom_i: entity work.mseq_rom
         port map(
             address => curr_addr,
@@ -36,23 +36,23 @@ begin
     SEL <= rom_out(35 downto 33);
     ADDR_field <= rom_out(32 downto 27);
 
-    -- Next address logic
+
     process(SEL, ADDR_field, curr_addr, z, ir)
     begin
-        -- default: increment
+
         next_addr <= std_logic_vector(unsigned(curr_addr) + 1);
         case SEL is
-            when "000" =>  -- direct address
+            when "000" => 
                 next_addr <= ADDR_field;
-            when "001" =>  -- next sequential
+            when "001" =>  
                 next_addr <= std_logic_vector(unsigned(curr_addr) + 1);
-            when "010" =>  -- conditional on z
+            when "010" =>  
                 if z = '1' then
                     next_addr <= ADDR_field;
                 else
                     next_addr <= std_logic_vector(unsigned(curr_addr) + 1);
                 end if;
-            when "011" =>  -- conditional on ir = 0 (example)
+            when "011" => 
                 if ir = "0000" then
                     next_addr <= ADDR_field;
                 else
@@ -63,7 +63,7 @@ begin
         end case;
     end process;
 
-    -- register for microPC
+
     pc_reg: entity work.regn
         generic map(n => 6)
         port map(
@@ -75,3 +75,4 @@ begin
         );
 
 end arc;
+
