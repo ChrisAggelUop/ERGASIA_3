@@ -1,14 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- 4-to-1 multiplexer για 6-bit διευθύνσεις
+
 entity mux4_6 is
     port(
-        a0  : in  std_logic_vector(5 downto 0);
-        a1  : in  std_logic_vector(5 downto 0);
-        a2  : in  std_logic_vector(5 downto 0);
-        a3  : in  std_logic_vector(5 downto 0);
-        sel : in  std_logic_vector(1 downto 0);
+        a0  : in  std_logic_vector(5 downto 0);   --1--
+        a1  : in  std_logic_vector(5 downto 0);   --Ζ--
+        a2  : in  std_logic_vector(5 downto 0);   --Ζ'--
+        a3  : in  std_logic_vector(5 downto 0);   --0--
+        sel : in  std_logic_vector(1 downto 0);    --το Cond--
         y   : out std_logic_vector(5 downto 0)
     );
 end mux4_6;
@@ -25,4 +25,5 @@ begin
         end case;
     end process;
 end arc_mux4;
+
 
