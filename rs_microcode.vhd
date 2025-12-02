@@ -62,7 +62,7 @@ BEGIN
 		address_aclr_a => "NONE",
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "rs_microcode.mif",
+		init_file => "rs_microcode.mif",      ------ΕΠΡΕΠΕ ΝΑ ΔΟΥΛΕΥΕΙ, ΑΛΛΑ ΔΕΝ ΜΟΥ ΤΑ ΕΜΦΑΝΙΖΕΙ ΣΤΗΝ ΜΝΗΜΗ----
 		intended_device_family => "MAX 10",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",
@@ -142,3 +142,4 @@ END SYN;
 -- Retrieval info: GEN_FILE: TYPE_NORMAL rs_microcode.bsf FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL rs_microcode_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: altera_mf
+
